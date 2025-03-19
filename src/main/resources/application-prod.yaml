@@ -1,0 +1,24 @@
+quarkus:
+
+  amqp:
+    health:
+      enabled: true
+mp:
+  messaging:
+    outgoing:
+      miras-topic:
+        host: ${AMQ_HOST}
+        port: ${AMQ_PORT}
+
+    incoming:
+      jira-consumer:
+        host: ${AMQ_HOST}
+        port: ${AMQ_PORT}
+
+      smartsheet-consumer:
+        host: ${AMQ_HOST}
+        port: ${AMQ_PORT}
+
+      email-consumer:
+        host: ${AMQ_HOST}
+        port: ${AMQ_PORT}

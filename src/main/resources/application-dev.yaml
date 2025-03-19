@@ -1,0 +1,7 @@
+quarkus:
+  log:
+    level: DEBUG
+
+  amqp:
+    devservices:
+      enabled: true

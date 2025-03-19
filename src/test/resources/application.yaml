@@ -1,0 +1,55 @@
+quarkus:
+  log:
+    level: DEBUG
+
+  amqp:
+    devservices:
+      enabled: true  # ✅ Ensures integration tests run against a real AMQ broker
+
+# AMQP CONFIGURATION
+mp:
+  messaging:
+    outgoing:
+      miras-topic:
+        connector: smallrye-in-memory
+        durable: true
+        address: miras-topic
+        container-id: miras-producer
+        link-name: miras-topic
+
+    incoming:
+      jira-consumer:
+        connector: smallrye-in-memory
+        durable: true
+        shared: true
+        address: miras-topic::jira-consumer
+        container-id: jira-consumer
+        auto-delete: false
+        exclusive: false
+        ttl: 3600000
+        prefetch: 10
+        content-type: application/json
+
+      smartsheet-consumer:
+        connector: smallrye-in-memory
+        durable: true
+        shared: true
+        address: miras-topic::smartsheet-consumer
+        container-id: smartsheet-consumer
+        auto-delete: false
+        exclusive: false
+        ttl: 3600000
+        prefetch: 10
+        content-type: application/json
+
+      email-consumer:
+        connector: smallrye-in-memory
+        durable: true
+        shared: true
+        address: miras-topic::email-consumer
+        container-id: email-consumer
+        auto-delete: false
+        exclusive: false
+        ttl: 3600000
+        prefetch: 10
+        content-type: application/json

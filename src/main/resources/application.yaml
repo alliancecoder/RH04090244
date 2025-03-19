@@ -1,0 +1,54 @@
+quarkus:
+  application:
+    name: RH04090244
+
+  http:
+    port: 8080
+
+# AMQP CONFIGURATION
+mp:
+  messaging:
+    outgoing:
+      miras-topic:
+        connector: smallrye-amqp
+        durable: true
+        address: miras-topic
+        container-id: miras-producer
+        link-name: miras-topic
+
+    incoming:
+      jira-consumer:
+        connector: smallrye-amqp
+        durable: true
+        shared: true
+        address: miras-topic::jira-consumer
+        container-id: jira-consumer
+        auto-delete: false
+        exclusive: false
+        ttl: 3600000
+        prefetch: 10
+        content-type: application/json
+
+      smartsheet-consumer:
+        connector: smallrye-amqp
+        durable: true
+        shared: true
+        address: miras-topic::smartsheet-consumer
+        container-id: smartsheet-consumer
+        auto-delete: false
+        exclusive: false
+        ttl: 3600000
+        prefetch: 10
+        content-type: application/json
+
+      email-consumer:
+        connector: smallrye-amqp
+        durable: true
+        shared: true
+        address: miras-topic::email-consumer
+        container-id: email-consumer
+        auto-delete: false
+        exclusive: false
+        ttl: 3600000
+        prefetch: 10
+        content-type: application/json
