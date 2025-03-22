@@ -11,7 +11,7 @@ mp:
   messaging:
     outgoing:
       miras-topic:
-        connector: smallrye-in-memory
+        connector: smallrye-amqp
         durable: true
         address: miras-topic
         container-id: miras-producer
@@ -19,7 +19,7 @@ mp:
 
     incoming:
       jira-consumer:
-        connector: smallrye-in-memory
+        connector: smallrye-amqp
         durable: true
         shared: true
         address: miras-topic::jira-consumer
@@ -31,7 +31,7 @@ mp:
         content-type: application/json
 
       smartsheet-consumer:
-        connector: smallrye-in-memory
+        connector: smallrye-amqp
         durable: true
         shared: true
         address: miras-topic::smartsheet-consumer
@@ -43,7 +43,7 @@ mp:
         content-type: application/json
 
       email-consumer:
-        connector: smallrye-in-memory
+        connector: smallrye-amqp
         durable: true
         shared: true
         address: miras-topic::email-consumer
