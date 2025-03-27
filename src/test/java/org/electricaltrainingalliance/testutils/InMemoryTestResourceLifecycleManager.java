@@ -1,4 +1,4 @@
-package org.electricaltrainingalliance.messaging.control;
+package org.electricaltrainingalliance.testutils;
 
 import java.util.HashMap;
 import java.util.Map;

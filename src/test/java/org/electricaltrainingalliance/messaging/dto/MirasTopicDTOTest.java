@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
-public class EmailAmqMessageDTOTest {
+public class MirasTopicDTOTest {
 
     @Test
     void testValidEmailMessage() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 "Test Subject",
                 "Test Body",
@@ -32,7 +32,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testMissingMessageId() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 null,
                 "Test Subject",
                 "Test Body",
@@ -47,7 +47,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testMissingSubject() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 null,
                 "Test Body",
@@ -62,7 +62,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testEmptyBody() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 "Test Subject",
                 "",
@@ -77,7 +77,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testNoRecipients() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 "Test Subject",
                 "Test Body",
@@ -92,7 +92,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testInvalidAttachmentUrls() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 "Test Subject",
                 "Test Body",
@@ -107,7 +107,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testMissingTimestamp() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 "Test Subject",
                 "Test Body",
@@ -122,7 +122,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testEmptyFilenameInAttachments() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 "Test Subject",
                 "Test Body",
@@ -137,7 +137,7 @@ public class EmailAmqMessageDTOTest {
 
     @Test
     void testNullAttachmentMap() {
-        EmailAmqMessageDTO message = new EmailAmqMessageDTO(
+        MirasTopicDTO message = new MirasTopicDTO(
                 UUID.randomUUID(),
                 "Test Subject",
                 "Test Body",

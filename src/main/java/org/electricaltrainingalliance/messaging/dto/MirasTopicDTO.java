@@ -16,7 +16,7 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.json.bind.annotation.JsonbTransient;
 
 @RegisterForReflection
-public class EmailAmqMessageDTO implements ValidEntity, Serializable {
+public class MirasTopicDTO implements ValidEntity, Serializable {
 
     private static final long serialVersionUID = 42L;
     private static final Pattern URL_PATTERN = Pattern.compile("https://.+");
@@ -30,13 +30,13 @@ public class EmailAmqMessageDTO implements ValidEntity, Serializable {
     private Map<String, String> attachments;
     private Instant timestamp;
 
-    public EmailAmqMessageDTO() {
+    public MirasTopicDTO() {
         this.messageId = UUID.randomUUID();
         this.recipients = new ArrayList<>();
         this.attachments = new HashMap<>();
     }
     
-    public EmailAmqMessageDTO(UUID messageId, String subject, String emailBody, String sender, boolean isHtml,
+    public MirasTopicDTO(UUID messageId, String subject, String emailBody, String sender, boolean isHtml,
                               List<String> recipients, Map<String, String> attachments, Instant timestamp) {
         this.messageId = messageId;
         this.subject = subject;
@@ -143,7 +143,7 @@ public class EmailAmqMessageDTO implements ValidEntity, Serializable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        EmailAmqMessageDTO other = (EmailAmqMessageDTO) obj;
+        MirasTopicDTO other = (MirasTopicDTO) obj;
         return isHtml == other.isHtml &&
                 Objects.equals(messageId, other.messageId) &&
                 Objects.equals(subject, other.subject) &&
